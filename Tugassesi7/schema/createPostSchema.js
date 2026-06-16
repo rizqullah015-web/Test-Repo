@@ -1,0 +1,10 @@
+module.exports = {
+    type: "object",
+    properties: {
+        title: { type: "string" },
+        body: { type: "string" },
+        userId: { type: "number" },
+        id: {type: "number" },
+    },
+    required: ["title", "body", "userId", "id"]
+};
