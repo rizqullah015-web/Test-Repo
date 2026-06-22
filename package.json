@@ -1,0 +1,18 @@
+{
+  "name": "tugas-sesi-9-web-ui",
+  "version": "1.0.0",
+  "description": "Web UI Automation SauceDemo",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test --recursive --timeout 60000 --reporter mochawesome"
+  },
+  "keywords": [],
+  "author": "Muhammad Alif Rizqullah",
+  "license": "ISC",
+  "dependencies": {
+    "assert": "^2.1.0",
+    "mocha": "^11.7.5",
+    "mochawesome": "^7.1.4",
+    "selenium-webdriver": "^4.0.0"
+  }
+}
