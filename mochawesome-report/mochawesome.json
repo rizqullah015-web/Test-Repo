@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2026-06-22T01:58:03.205Z",
-    "end": "2026-06-22T01:58:09.910Z",
-    "duration": 6705,
+    "start": "2026-06-25T11:25:35.197Z",
+    "end": "2026-06-25T11:25:43.266Z",
+    "duration": 8069,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,25 +18,25 @@
   },
   "results": [
     {
-      "uuid": "8924aea1-afec-43be-8170-c5eec8ddbb04",
+      "uuid": "fe9546c1-7a92-45c9-82c3-0c127c6043e9",
       "title": "",
-      "fullFile": "/Users/mars/Documents/tugas-sesi-9-web-ui/test/saucedemo.test.js",
+      "fullFile": "/Users/mars/session-9/test/saucedemo.test.js",
       "file": "/test/saucedemo.test.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "cfcee053-bf0d-4b6a-be30-1a036f956adf",
+          "uuid": "d3968477-0bc5-4d34-b51d-65a21f5dee14",
           "title": "SauceDemo Web UI Automation",
-          "fullFile": "/Users/mars/Documents/tugas-sesi-9-web-ui/test/saucedemo.test.js",
+          "fullFile": "/Users/mars/session-9/test/saucedemo.test.js",
           "file": "/test/saucedemo.test.js",
           "beforeHooks": [
             {
               "title": "\"before each\" hook in \"SauceDemo Web UI Automation\"",
               "fullTitle": "SauceDemo Web UI Automation \"before each\" hook in \"SauceDemo Web UI Automation\"",
               "timedOut": false,
-              "duration": 1701,
+              "duration": 1623,
               "state": null,
               "speed": null,
               "pass": false,
@@ -45,8 +45,8 @@
               "context": null,
               "code": "driver = await new Builder().forBrowser(\"chrome\").build();\nawait driver.manage().window().maximize();",
               "err": {},
-              "uuid": "1efae125-7dfd-4ab4-b50c-62a07e70bcd3",
-              "parentUUID": "cfcee053-bf0d-4b6a-be30-1a036f956adf",
+              "uuid": "ec0036b7-3343-40d3-92b9-a07d5f780e26",
+              "parentUUID": "d3968477-0bc5-4d34-b51d-65a21f5dee14",
               "isHook": true,
               "skipped": false
             }
@@ -56,7 +56,7 @@
               "title": "\"after each\" hook in \"SauceDemo Web UI Automation\"",
               "fullTitle": "SauceDemo Web UI Automation \"after each\" hook in \"SauceDemo Web UI Automation\"",
               "timedOut": false,
-              "duration": 171,
+              "duration": 54,
               "state": null,
               "speed": null,
               "pass": false,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "await driver.quit();",
               "err": {},
-              "uuid": "f6f4ad21-2144-44b1-8e71-322a5824d577",
-              "parentUUID": "cfcee053-bf0d-4b6a-be30-1a036f956adf",
+              "uuid": "da409489-bbcc-4209-a701-3458128bcde9",
+              "parentUUID": "d3968477-0bc5-4d34-b51d-65a21f5dee14",
               "isHook": true,
               "skipped": false
             }
@@ -76,7 +76,7 @@
               "title": "Success Login",
               "fullTitle": "SauceDemo Web UI Automation Success Login",
               "timedOut": false,
-              "duration": 1472,
+              "duration": 2139,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -85,8 +85,8 @@
               "context": null,
               "code": "await driver.get(\"https://www.saucedemo.com/\");\nawait driver.findElement(By.id(\"user-name\")).sendKeys(\"standard_user\");\nawait driver.findElement(By.id(\"password\")).sendKeys(\"secret_sauce\");\nawait driver.findElement(By.id(\"login-button\")).click();\nconst titleElement = await driver.wait(\n  until.elementLocated(By.className(\"title\")),\n  10000\n);\nconst pageTitle = await titleElement.getText();\nassert.strictEqual(pageTitle, \"Products\");",
               "err": {},
-              "uuid": "dca669d3-ae82-40b4-aabb-1426c641cf51",
-              "parentUUID": "cfcee053-bf0d-4b6a-be30-1a036f956adf",
+              "uuid": "c2f36ce7-0cd3-4b23-98de-f92a773f47cc",
+              "parentUUID": "d3968477-0bc5-4d34-b51d-65a21f5dee14",
               "isHook": false,
               "skipped": false
             },
@@ -94,7 +94,7 @@
               "title": "Sort Product A-Z",
               "fullTitle": "SauceDemo Web UI Automation Sort Product A-Z",
               "timedOut": false,
-              "duration": 1111,
+              "duration": 2143,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -103,21 +103,21 @@
               "context": null,
               "code": "await driver.get(\"https://www.saucedemo.com/\");\nawait driver.findElement(By.id(\"user-name\")).sendKeys(\"standard_user\");\nawait driver.findElement(By.id(\"password\")).sendKeys(\"secret_sauce\");\nawait driver.findElement(By.id(\"login-button\")).click();\nawait driver.wait(until.elementLocated(By.className(\"title\")), 10000);\nconst sortDropdown = await driver.findElement(By.className(\"product_sort_container\"));\nawait sortDropdown.sendKeys(\"az\");\nconst productElements = await driver.findElements(By.className(\"inventory_item_name\"));\nconst productNames = [];\nfor (let product of productElements) {\n  productNames.push(await product.getText());\n}\nconst sortedProductNames = [...productNames].sort();\nassert.deepStrictEqual(productNames, sortedProductNames);",
               "err": {},
-              "uuid": "4f088f44-c144-41c1-a8ef-bf76883cb3bf",
-              "parentUUID": "cfcee053-bf0d-4b6a-be30-1a036f956adf",
+              "uuid": "faaa6398-e293-4860-aa08-6d51e2403b6c",
+              "parentUUID": "d3968477-0bc5-4d34-b51d-65a21f5dee14",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "dca669d3-ae82-40b4-aabb-1426c641cf51",
-            "4f088f44-c144-41c1-a8ef-bf76883cb3bf"
+            "c2f36ce7-0cd3-4b23-98de-f92a773f47cc",
+            "faaa6398-e293-4860-aa08-6d51e2403b6c"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2583,
+          "duration": 4282,
           "root": false,
           "rootEmpty": false,
           "_timeout": 60000
