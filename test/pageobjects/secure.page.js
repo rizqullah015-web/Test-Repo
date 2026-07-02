@@ -1,16 +1,33 @@
-const { $ } = require('@wdio/globals')
-const Page = require('./page');
+const {$} = require('@wdio/globals')
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
-class SecurePage extends Page {
-    /**
-     * define selectors using getter methods
-     */
-    get flashAlert () {
-        return $('#flash');
+class SecurePage {
+    get productTitle() {
+        return $('~test-PRODUCTS')
+    }
+    get menuButton() {
+        return $('~test-Menu')
+    }
+    get logoutButton() {
+        return $('~test-LOGOUT')
+    }
+    get sortButton() {
+        return $('~test-Modal Selector Button')
+    }
+    get sortNameDesc() {
+        return $('android=new UiSelector().text("Name (Z to A)")')
+    }
+    get firstProductAfterSort() {
+        return $('android=new UiSelector().text("Test.allTheThings() T-Shirt (Red)")')
+    }
+
+    async logout() {
+        await this.menuButton.click()
+        await this.logoutButton.click()
+    }
+    async sortProductNameDesc() {
+        await this.sortButton.click()
+        await this.sortNameDesc.click()
     }
 }
 
-module.exports = new SecurePage();
+module.exports = new SecurePage()

@@ -1,0 +1,5 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","8292","Login dengan akun valid","Swag Labs Mobile","2026-07-02","passed","2026-07-02","","","",""
+"","34325","Sorting prdouct Name Z to A","Swag Labs Mobile","2026-07-02","passed","2026-07-02","","","",""
+"","27760","Login dengan akun invalid","Swag Labs Mobile","2026-07-02","passed","2026-07-02","","","",""
+"","33179","Logout dengan sukses","Swag Labs Mobile","2026-07-02","passed","2026-07-02","","","",""

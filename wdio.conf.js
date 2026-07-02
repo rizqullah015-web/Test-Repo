@@ -50,13 +50,18 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
+    capabilities:[{
         // capabilities for local Appium web tests on an Android Emulator
-        platformName: 'Android',
+        'platformName': 'Android',
+        'appium:deviceName': 'Pixel 4',
+        'appium:platformVersion': '12.0',
         'appium:automationName': 'UiAutomator2',
-        'appium:deviceName': 'Android Emulator',
-        'appium:appPackage': 'com.android.settings',
-        'appium:appActivity': 'Settings'
+        'appium:app': './app/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk',
+        'appium:appWaitActivity':'*',
+        'appium:autoGrantPermissions': true,
+        'appium:adbExecTimeout': 120000,
+        'appium:uiautomator2ServerLaunchTimeout': 120000,
+        "appium:androidInstallTimeout": 120000,
     }],
 
     //
@@ -129,7 +134,14 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: [
+        'spec',
+        ['allure', {
+            outputDir:'allure-results',
+            disableWebDriverStepsreporting: true,
+            disableWebDriverScreenshotsReporting: false,
+        }]
+    ],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
@@ -208,8 +220,10 @@ exports.config = {
     /**
      * Function to be executed before a test (in Mocha/Jasmine) starts.
      */
-    // beforeTest: function (test, context) {
-    // },
+    beforeTest: async function (test, context) {
+        await driver.pause(1000)
+        await driver.pause(1000)
+    },
     /**
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
      * beforeEach in Mocha)
@@ -232,8 +246,9 @@ exports.config = {
      * @param {boolean} result.passed    true if test has passed, otherwise false
      * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-    // },
+    afterTest: async function(test, context, { passed }) {
+        console.log(`Test: ${test.title} : ${passed ? "PASS" : "FAIL"}`)
+    }, 
 
 
     /**
